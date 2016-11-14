@@ -10,11 +10,20 @@ package notafiscal;
  * @author Lucas
  */
 public class NotaFiscal {
+    private int _id;
+    private String _data;
+    
     public NotaFiscal(){
         
     }
     public void validar(){
         ValidadorNF validador = ValidadorNF.getInstancia();
         validador.validar(this);
+    }
+    public double getValor(){
+        return 0.0; //dummy
+    }
+    public String getData(){
+        return _data;
     }
 }

@@ -10,5 +10,7 @@ package notafiscal;
  * @author Lucas
  */
 public interface Mercadoria {
-    
+    public double getPreco();
+    public String getNome();
+    public Imposto getImposto();
 }
