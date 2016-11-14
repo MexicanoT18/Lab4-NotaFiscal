@@ -9,13 +9,6 @@ package notafiscal;
  *
  * @author Lucas
  */
-public class Lab4NotaFiscal {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public interface Mercadoria {
     
 }
