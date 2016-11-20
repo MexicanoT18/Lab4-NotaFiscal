@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/basededados/BancoDeDadosImpostos.java</file>
             <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/notafiscal/NotaFiscal.java</file>
             <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/notafiscal/ValidadorNF.java</file>
             <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/notafiscal/Mercadoria.java</file>
@@ -11,6 +12,7 @@
             <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/notafiscal/Imposto.java</file>
             <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/notafiscal/ItemDeVenda.java</file>
             <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/notafiscal/Produto.java</file>
+            <file>file:/C:/Users/dv7/Documents/CES-28/Lab4-NotaFiscal/src/basededados/BancoDeDadosMercadorias.java</file>
         </group>
     </open-files>
 </project-private>

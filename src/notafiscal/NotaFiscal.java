@@ -5,6 +5,8 @@
  */
 package notafiscal;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lucas
@@ -12,6 +14,7 @@ package notafiscal;
 public class NotaFiscal {
     private int _id;
     private String _data;
+    private ArrayList<ItemDeVenda> _itens;
     
     public NotaFiscal(){
         
@@ -25,5 +28,11 @@ public class NotaFiscal {
     }
     public String getData(){
         return _data;
+    }
+    public void adicionarProduto(String nome){
+        
+    }
+    public void adicionarServico(String nome){
+        
     }
 }

@@ -5,6 +5,8 @@
  */
 package basededados;
 
+import notafiscal.Produto;
+
 /**
  *
  * @author Lucas
@@ -15,7 +17,8 @@ public class BancoDeDados {
     private BancoDeDadosMercadorias _bancoMercadorias;
     
     private BancoDeDados(){
-        
+        _bancoImpostos = new BancoDeDadosImpostos();
+        _bancoMercadorias = new BancoDeDadosMercadorias(_bancoImpostos);
     }
     
     public static BancoDeDados getInstancia(){
@@ -23,5 +26,9 @@ public class BancoDeDados {
             _instancia = new BancoDeDados();
         }
         return _instancia;
+    }
+    
+    public Produto getProduto(String nome){
+        return _bancoMercadorias.getProduto(nome);
     }
 }

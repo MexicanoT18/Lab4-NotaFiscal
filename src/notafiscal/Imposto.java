@@ -10,5 +10,6 @@ package notafiscal;
  * @author Lucas
  */
 public class Imposto {
-    
+    private double _porcentagem;
+    private String _nome;
 }

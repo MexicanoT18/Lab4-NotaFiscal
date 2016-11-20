@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class ItemDeVenda {
     private Mercadoria _mercadoria;
-    private Imposto _imposto;
     private double _desconto;
     private int _quantidade;
 }

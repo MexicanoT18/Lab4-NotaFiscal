@@ -10,14 +10,25 @@ package notafiscal;
  * @author Lucas
  */
 public class Produto implements Mercadoria{
+    
+    private double _preco;
+    private String _nome;
+    private Imposto _imposto;
+    
+    public Produto(double preco, String nome, Imposto imposto){
+        _preco = preco;
+        _nome = nome;
+        _imposto = imposto;
+    }
+    
     public double getPreco(){
-        return 0.0; //dummy
+        return _preco;
     }
     public String getNome(){
-        return "Papel"; //dummy
+        return _nome;
     }
     public Imposto getImposto(){
-        return null;    //dummy
+        return _imposto;
     }
     
 }
