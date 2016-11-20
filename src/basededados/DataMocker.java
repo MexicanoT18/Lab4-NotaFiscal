@@ -1,6 +1,8 @@
 package basededados;
 
 
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.TreeMap;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -16,20 +18,43 @@ import static org.mockito.Mockito.when;
  * @author Lucas
  */
 public class DataMocker {
-    public static TreeMap<String, String> getImpostosNomes(){
-        TreeMap<String, String> nomes = mock(TreeMap.class);
-        when(nomes.get("chocolate")).thenReturn("Imposto sobre chocolate");
-        when(nomes.get("sorvete")).thenReturn("Imposto sobre sorvete");
-        when(nomes.get("internet")).thenReturn("Imposto sobre internet");
-        when(nomes.get("transporte")).thenReturn("Imposto sobre transporte");
+    public static Map<String, ArrayList<String> > getImpostosPorNomes(){
+        Map<String, ArrayList<String> > nomes = mock(TreeMap.class);
+        ArrayList<String> nomesImpostos;
+        
+        //chocolate
+        nomesImpostos = new ArrayList<>();
+        nomesImpostos.add("imposto sobre chocolate");
+        nomesImpostos.add("imposto sobre doces");
+        when(nomes.get("chocolate")).thenReturn(nomesImpostos);
+        
+        //sorvete
+        nomesImpostos = new ArrayList<>();
+        nomesImpostos.add("imposto sobre sorvete");
+        nomesImpostos.add("imposto sobre doces");
+        when(nomes.get("sorvete")).thenReturn(nomesImpostos);
+        
+        //internet
+        nomesImpostos = new ArrayList<>();
+        nomesImpostos.add("imposto sobre internet");
+        nomesImpostos.add("imposto sobre comunicações");
+        when(nomes.get("internet")).thenReturn(nomesImpostos);
+        
+        //telefone
+        nomesImpostos = new ArrayList<>();
+        nomesImpostos.add("imposto sobre telefone");
+        nomesImpostos.add("imposto sobre comunicações");
+        when(nomes.get("telefone")).thenReturn(nomesImpostos);
         return nomes;
     }
-    public static TreeMap<String, Double> getImpostosPorcentagens(){
-        TreeMap<String, Double> precos = mock(TreeMap.class);
-        when(precos.get("chocolate")).thenReturn(0.1);
-        when(precos.get("sorvete")).thenReturn(0.2);
-        when(precos.get("internet")).thenReturn(0.3);
-        when(precos.get("transporte")).thenReturn(0.4);
+    public static Map<String, Double> getImpostos(){
+        Map<String, Double> precos = mock(TreeMap.class);
+        when(precos.get("imposto sobre chocolate")).thenReturn(0.1);
+        when(precos.get("imposto sobre sorvete")).thenReturn(0.2);
+        when(precos.get("imposto sobre doces")).thenReturn(0.15);
+        when(precos.get("imposto sobre internet")).thenReturn(0.1);
+        when(precos.get("imposto sobre telefone")).thenReturn(0.3);
+        when(precos.get("imposto sobre comunicações")).thenReturn(0.2);
         return precos;
     }
     public static TreeMap<String, Double> getPSPrecos(){
@@ -37,7 +62,7 @@ public class DataMocker {
         when(precos.get("chocolate")).thenReturn(5.0);
         when(precos.get("sorvete")).thenReturn(20.0);
         when(precos.get("internet")).thenReturn(120.0);
-        when(precos.get("transporte")).thenReturn(30.0);
+        when(precos.get("telefone")).thenReturn(30.0);
         return precos;
     }
 }

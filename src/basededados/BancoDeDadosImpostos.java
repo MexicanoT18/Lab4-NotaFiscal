@@ -5,6 +5,8 @@
  */
 package basededados;
 
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.TreeMap;
 import notafiscal.Imposto;
 
@@ -14,16 +16,26 @@ import notafiscal.Imposto;
  */
 public class BancoDeDadosImpostos {
     
-    private TreeMap<String, String> _nomes;
-    private TreeMap<String, Double> _porcentagens;
+    private Map<String, ArrayList<String> > _impostosPorNome;
+    private Map<String, Double> _impostos;
     
     public BancoDeDadosImpostos(){
-        _nomes = DataMocker.getImpostosNomes();
-        _porcentagens = DataMocker.getImpostosPorcentagens();
+        _impostosPorNome = DataMocker.getImpostosPorNomes();
+        _impostos = DataMocker.getImpostos();
     }
     
-    public Imposto getImposto(String nome){
-        Imposto imposto = new Imposto(_porcentagens.get(nome), _nomes.get(nome));
+    public Imposto getImposto(String nomeMercadoria) throws Exception{
+        if (!_impostosPorNome.containsKey(nomeMercadoria)){
+            throw new Exception("Mercadoria inexistente no banco de dados de impostos");
+        }
+        ArrayList<String> nomesImpostos = _impostosPorNome.get(nomeMercadoria);
+        Map<String, Double> impostosMercadoria = new TreeMap<>();
+        for(int i=0; i<nomesImpostos.size(); i++){
+            String nomeImposto = nomesImpostos.get(i);
+            double porcentagem = _impostos.get(nomeImposto);
+            impostosMercadoria.put(nomeImposto, porcentagem);
+        }
+        Imposto imposto = new Imposto(impostosMercadoria);
         return imposto;
     }
 }

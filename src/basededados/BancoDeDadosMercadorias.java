@@ -22,17 +22,20 @@ public class BancoDeDadosMercadorias {
     public BancoDeDadosMercadorias(BancoDeDadosImpostos bancoImpostos){
         _bancoImpostos = bancoImpostos;
         
-        _precos = DataMocker.getImpostosPorcentagens();
+        _precos = DataMocker.getPSPrecos();
     }
     
-    public Produto getProduto(String nome){
+    public Produto getProduto(String nome) throws Exception{
+        if (_precos.containsKey(nome)){
+            throw new Exception("Mercadoria inexistente no banco de dados de mercadorias");
+        }
         double preco = _precos.get(nome);
         Imposto imposto = _bancoImpostos.getImposto(nome);
         Produto produto = new Produto(preco, nome, imposto);
         return produto;
     }
     
-    public Servico getServico(String nome){
+    public Servico getServico(String nome) throws Exception{
         double preco = _precos.get(nome);
         Imposto imposto = _bancoImpostos.getImposto(nome);
         Servico servico = new Servico(preco, nome, imposto);
