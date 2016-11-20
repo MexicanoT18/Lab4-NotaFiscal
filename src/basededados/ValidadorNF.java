@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package notafiscal;
+package basededados;
+
+import notafiscal.NotaFiscal;
 
 /**
  *
@@ -22,7 +24,7 @@ public class ValidadorNF {
         }
         return _instancia;
     }
-    public void validar(NotaFiscal nota){
-        
+    public final NotaFiscal validar(NotaFiscal nota){
+        return null;
     }
 }

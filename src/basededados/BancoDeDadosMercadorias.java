@@ -6,7 +6,9 @@
 package basededados;
 
 import java.util.TreeMap;
+import notafiscal.Imposto;
 import notafiscal.Produto;
+import notafiscal.Servico;
 
 /**
  *
@@ -15,14 +17,25 @@ import notafiscal.Produto;
 public class BancoDeDadosMercadorias {
     
     private BancoDeDadosImpostos _bancoImpostos;
-    private TreeMap<String, Double> precos;
+    private TreeMap<String, Double> _precos;
     
     public BancoDeDadosMercadorias(BancoDeDadosImpostos bancoImpostos){
         _bancoImpostos = bancoImpostos;
+        
+        _precos = DataMocker.getImpostosPorcentagens();
     }
+    
     public Produto getProduto(String nome){
-        double preco = precos.get(nome);
-        Imposto = _bancoImpostos.getImposto(nome);
-        Produto produto = new Produto(preco, nome, imposto)
+        double preco = _precos.get(nome);
+        Imposto imposto = _bancoImpostos.getImposto(nome);
+        Produto produto = new Produto(preco, nome, imposto);
+        return produto;
+    }
+    
+    public Servico getServico(String nome){
+        double preco = _precos.get(nome);
+        Imposto imposto = _bancoImpostos.getImposto(nome);
+        Servico servico = new Servico(preco, nome, imposto);
+        return servico;
     }
 }

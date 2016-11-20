@@ -12,4 +12,9 @@ package notafiscal;
 public class Imposto {
     private double _porcentagem;
     private String _nome;
+    
+    public Imposto(double porcentagem, String nome){
+        _porcentagem = porcentagem;
+        _nome = nome;
+    }
 }

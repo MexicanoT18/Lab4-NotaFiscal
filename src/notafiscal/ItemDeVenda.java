@@ -15,4 +15,6 @@ public class ItemDeVenda {
     private Mercadoria _mercadoria;
     private double _desconto;
     private int _quantidade;
+    
+    
 }
