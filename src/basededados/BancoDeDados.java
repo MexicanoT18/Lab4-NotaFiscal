@@ -6,6 +6,7 @@
 package basededados;
 
 import notafiscal.Produto;
+import notafiscal.Servico;
 
 /**
  *
@@ -30,5 +31,9 @@ public class BancoDeDados {
     
     public Produto getProduto(String nome){
         return _bancoMercadorias.getProduto(nome);
+    }
+    
+    public Servico getServico(String nome){
+        return _bancoMercadorias.getServico(nome);
     }
 }
