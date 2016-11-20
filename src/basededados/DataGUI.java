@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,7 +18,7 @@ import static org.mockito.Mockito.when;
  *
  * @author Lucas
  */
-public class DataMocker {
+public class DataGUI {
     public static Map<String, ArrayList<String> > getImpostosPorNomes(){
         Map<String, ArrayList<String> > nomes = mock(TreeMap.class);
         ArrayList<String> nomesImpostos;

@@ -14,9 +14,10 @@ import notafiscal.NotaFiscal;
 public class ValidadorNF {
     
     private static ValidadorNF _instancia;
+    private int _idAtual;
             
     private ValidadorNF(){
-        
+        _idAtual = 0;
     }
     public static ValidadorNF getInstancia(){
         if (_instancia == null){

@@ -29,11 +29,11 @@ public class BancoDeDados {
         return _instancia;
     }
     
-    public Produto getProduto(String nome){
+    public Produto getProduto(String nome) throws Exception{
         return _bancoMercadorias.getProduto(nome);
     }
     
-    public Servico getServico(String nome){
+    public Servico getServico(String nome) throws Exception{
         return _bancoMercadorias.getServico(nome);
     }
 }

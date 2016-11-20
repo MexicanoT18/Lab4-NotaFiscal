@@ -20,8 +20,8 @@ public class BancoDeDadosImpostos {
     private Map<String, Double> _impostos;
     
     public BancoDeDadosImpostos(){
-        _impostosPorNome = DataMocker.getImpostosPorNomes();
-        _impostos = DataMocker.getImpostos();
+        _impostosPorNome = DataGUI.getImpostosPorNomes();
+        _impostos = DataGUI.getImpostos();
     }
     
     public Imposto getImposto(String nomeMercadoria) throws Exception{
@@ -32,6 +32,9 @@ public class BancoDeDadosImpostos {
         Map<String, Double> impostosMercadoria = new TreeMap<>();
         for(int i=0; i<nomesImpostos.size(); i++){
             String nomeImposto = nomesImpostos.get(i);
+            if (!_impostos.containsKey(nomeImposto)){
+                throw new Exception("Imposto inexistente no banco de dados de impostos");
+            }
             double porcentagem = _impostos.get(nomeImposto);
             impostosMercadoria.put(nomeImposto, porcentagem);
         }

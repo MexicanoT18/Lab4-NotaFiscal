@@ -22,7 +22,7 @@ public class BancoDeDadosMercadorias {
     public BancoDeDadosMercadorias(BancoDeDadosImpostos bancoImpostos){
         _bancoImpostos = bancoImpostos;
         
-        _precos = DataMocker.getPSPrecos();
+        _precos = DataGUI.getPSPrecos();
     }
     
     public Produto getProduto(String nome) throws Exception{
