@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package notafiscal;
 
+import imposto.Imposto;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,27 +9,38 @@ import java.util.List;
  *
  * @author Lucas
  */
-public class Produto implements Mercadoria{
+public final class Produto implements Mercadoria{
     
     private final double _preco;
     private final String _nome;
-    private final Imposto _imposto;
+    private final List<Imposto> _impostos;
     private final List<Mercadoria> _submercadorias;
     
-    public Produto(double preco, String nome, Imposto imposto, List<Mercadoria> submercadorias){
+    public Produto(double preco, String nome, List<Mercadoria> submercadorias, List<Imposto> impostos){
         _preco = preco;
         _nome = nome;
-        _imposto = imposto;
+        _impostos = impostos;
         _submercadorias = submercadorias;
     }
     
     @Override
-    public List<Mercadoria> getSubmercadorias(){
-        return Collections.unmodifiableList(_submercadorias);
+    public double getValor(){
+        double valor = _preco;
+        for(int i=0; i<_submercadorias.size(); i++){
+            valor += _submercadorias.get(i).getValor();
+        }
+        for(int i=0; i<_impostos.size(); i++){
+            valor = _impostos.get(i).getValor(valor);
+        }
+        return valor;
     }
     
     @Override
     public double getPreco(){
+        double preco = _preco;
+        for(int i=0; i<_submercadorias.size(); i++){
+            preco += _submercadorias.get(i).getPreco();
+        }
         return _preco;
     }
     
@@ -42,15 +50,27 @@ public class Produto implements Mercadoria{
     }
     
     @Override
-    public Imposto getImposto(){
-        return _imposto;
+    public List<Mercadoria> getSubmercadorias(){
+        return Collections.unmodifiableList(_submercadorias);
     }
     
-    public boolean equals(Mercadoria outro){
+    @Override
+    public List<Imposto> getImpostos(){
+        return Collections.unmodifiableList(_impostos);
+    }
+    
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Produto)) return false;
+        Produto outro = (Produto)object;
+        
+        if (Math.abs(getPreco() - outro.getPreco()) > 1e-9) return false;
+        if (!getNome().equals(outro.getNome())) return false;
+        if (!getImpostos().equals(outro.getImpostos())) return false;
+        
         List<Mercadoria> lista1 = getSubmercadorias();
         List<Mercadoria> lista2 = outro.getSubmercadorias();
-        if (lista1.size()!=lista2.size())
-            return false;
+        if (lista1.size()!=lista2.size()) return false;
         Produto produto1, produto2;
         Servico servico1, servico2;
         for(int i=0; i<lista1.size(); i++){
@@ -85,9 +105,6 @@ public class Produto implements Mercadoria{
             }
             else return false;
         }
-        if (Math.abs(getPreco() - outro.getPreco()) > 1e-9) return false;
-        if (!getNome().equals(outro.getNome())) return false;
-        if (!getImposto().equals(outro.getImposto())) return false;
         return true;
     }
     

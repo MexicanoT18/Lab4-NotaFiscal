@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package basededados;
 
 import notafiscal.Produto;
@@ -12,14 +7,16 @@ import notafiscal.Servico;
  *
  * @author Lucas
  */
-public class BancoDeDados {
+public class BancoDeDados {         //DP singleton, facade
     private static BancoDeDados _instancia;
     private BancoDeDadosImpostos _bancoImpostos;
     private BancoDeDadosMercadorias _bancoMercadorias;
+    private BancoDeDadosNotaFiscal _bancoNotas;
     
     private BancoDeDados(){
         _bancoImpostos = new BancoDeDadosImpostos();
         _bancoMercadorias = new BancoDeDadosMercadorias(_bancoImpostos);
+        _bancoNotas = new BancoDeDadosNotaFiscal();
     }
     
     public static BancoDeDados getInstancia(){
@@ -35,5 +32,13 @@ public class BancoDeDados {
     
     public Servico getServico(String nome) throws Exception{
         return _bancoMercadorias.getServico(nome);
+    }
+    
+    public boolean existeId(int id){
+        return _bancoNotas.existeId(id);
+    }
+    
+    public void registrarId(int id) throws Exception{
+        _bancoNotas.registrarId(id);
     }
 }

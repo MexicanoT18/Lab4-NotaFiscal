@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import basededados.BancoDeDadosImpostos;
 import basededados.BancoDeDadosMercadorias;
-import notafiscal.Imposto;
+import imposto.Imposto;
 import notafiscal.Produto;
 import notafiscal.Servico;
 import org.junit.Test;
@@ -41,7 +35,7 @@ public class BancoDeDadosMercadoriasTestes {
         try{
             Produto teste = _bancoMercadorias.getProduto("sorvete");
             assertTrue(teste.getNome().equals(esperado.getNome()));
-            assertTrue(teste.getImposto().equals(esperado.getImposto()));
+            assertTrue(teste.getImpostos().equals(esperado.getImpostos()));
             assertEquals(teste.getPreco(), esperado.getPreco(), 0.000000001);
             assertTrue(teste.equals(esperado));
         } catch(Exception e){
@@ -55,7 +49,7 @@ public class BancoDeDadosMercadoriasTestes {
         try{
             Produto teste = _bancoMercadorias.getProduto("chocolate");
             assertTrue(teste.getNome().equals(esperado.getNome()));
-            assertTrue(teste.getImposto().equals(esperado.getImposto()));
+            assertTrue(teste.getImpostos().equals(esperado.getImpostos()));
             assertEquals(teste.getPreco(), esperado.getPreco(), 0.000000001);
             assertTrue(teste.equals(esperado));
         } catch(Exception e){
@@ -69,7 +63,7 @@ public class BancoDeDadosMercadoriasTestes {
         try{
             Produto teste = _bancoMercadorias.getProduto("caixa de doces");
             assertTrue(teste.getNome().equals(esperado.getNome()));
-            assertTrue(teste.getImposto().equals(esperado.getImposto()));
+            assertTrue(teste.getImpostos().equals(esperado.getImpostos()));
             assertEquals(teste.getPreco(), esperado.getPreco(), 0.000000001);
             assertTrue(teste.equals(esperado));
         } catch(Exception e){
@@ -83,7 +77,7 @@ public class BancoDeDadosMercadoriasTestes {
         try{
             Servico teste = _bancoMercadorias.getServico("internet");
             assertTrue(teste.getNome().equals(esperado.getNome()));
-            assertTrue(teste.getImposto().equals(esperado.getImposto()));
+            assertTrue(teste.getImpostos().equals(esperado.getImpostos()));
             assertEquals(teste.getPreco(), esperado.getPreco(), 0.000000001);
             assertTrue(teste.equals(esperado));
         } catch(Exception e){
@@ -97,7 +91,7 @@ public class BancoDeDadosMercadoriasTestes {
         try{
             Servico teste = _bancoMercadorias.getServico("telefone");
             assertTrue(teste.getNome().equals(esperado.getNome()));
-            assertTrue(teste.getImposto().equals(esperado.getImposto()));
+            assertTrue(teste.getImpostos().equals(esperado.getImpostos()));
             assertEquals(teste.getPreco(), esperado.getPreco(), 0.000000001);
             assertTrue(teste.equals(esperado));
         } catch(Exception e){
@@ -111,7 +105,7 @@ public class BancoDeDadosMercadoriasTestes {
         try{
             Servico teste = _bancoMercadorias.getServico("combo net");
             assertTrue(teste.getNome().equals(esperado.getNome()));
-            assertTrue(teste.getImposto().equals(esperado.getImposto()));
+            assertTrue(teste.getImpostos().equals(esperado.getImpostos()));
             assertEquals(teste.getPreco(), esperado.getPreco(), 0.000000001);
             assertTrue(teste.equals(esperado));
         } catch(Exception e){

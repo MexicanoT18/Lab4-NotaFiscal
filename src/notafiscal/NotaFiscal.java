@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package notafiscal;
 
 import basededados.ValidadorNF;
@@ -16,10 +11,9 @@ import javafx.print.Collation;
  *
  * @author Lucas
  */
-public class NotaFiscal {
+public final class NotaFiscal {
     
     private int _id;
-    private String _data;
     private List<ItemDeVenda> _itens;
     private boolean _emElaboracao;
     
@@ -27,19 +21,19 @@ public class NotaFiscal {
         _emElaboracao = true;
         _itens = new ArrayList<>();
         _id = -1;
-        _data = "Em elaboração";
     }
     
-    public NotaFiscal(int id, String data, ArrayList<ItemDeVenda> itens, boolean emElaboracao){
-        _emElaboracao = emElaboracao;
-        _itens = (ArrayList<ItemDeVenda>) itens.clone();
-        _id = id;
-        _data = data;
-    }
-    
-    public NotaFiscal validar(){
+    public void validar() throws Exception{
+        if (!_emElaboracao){
+            throw new Exception("Nota já validada");
+        }
         ValidadorNF validador = ValidadorNF.getInstancia();
-        return validador.validar(this);
+        _id = validador.validarEPegarId(this);
+        if (_id < 0){
+            throw new Exception("Validação não autorizada");
+        }
+        _itens = Collections.unmodifiableList(_itens);
+        _emElaboracao = false;
     }
     
     public double getValor(){
@@ -50,19 +44,27 @@ public class NotaFiscal {
         return valor;
     }
     
-    public String getData(){
-        return _data;
+    public List<ItemDeVenda> getItensDeVenda(){
+        return Collections.unmodifiableList(_itens);
     }
     
     public boolean possuiItens(){
         return !_itens.isEmpty();
     }
     
-    public void adicionarProduto(String nome){
+    public void adicionarMercadoria(String nome, double desconto, int quantidade) throws Exception{
         if (!_emElaboracao) return;
-    }
-    
-    public void adicionarServico(String nome){
-        if (!_emElaboracao) return;        
+        
+        ItemDeVenda item = new ItemDeVenda(nome, desconto, quantidade);
+        
+        if (_itens.contains(item)){
+            int i = _itens.indexOf(item);
+            quantidade += _itens.get(i).getQuantidade();
+            _itens.remove(item);
+        }
+        
+        item = new ItemDeVenda(nome, desconto, quantidade);
+        
+        _itens.add(item);
     }
 }

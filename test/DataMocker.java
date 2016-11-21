@@ -1,17 +1,13 @@
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
-import notafiscal.Imposto;
+import imposto.Imposto;
+import imposto.Porcentagem;
+import imposto.ValorBruto;
+import java.util.List;
 import notafiscal.Mercadoria;
 import notafiscal.Produto;
 import notafiscal.Servico;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -20,90 +16,92 @@ import notafiscal.Servico;
 public class DataMocker {
     
     private static Produto _sorvete;
-    private static Imposto _impostoSorvete;
+    private static List<Imposto> _impostosSorvete;
     private static Produto _chocolate;
-    private static Imposto _impostoChocolate;
+    private static List<Imposto> _impostosChocolate;
     private static Servico _internet;
-    private static Imposto _impostoInternet;
+    private static List<Imposto> _impostosInternet;
     private static Servico _telefone;
-    private static Imposto _impostoTelefone;
+    private static List<Imposto> _impostosTelefone;
     private static Produto _caixaDoces;
-    private static Imposto _impostoCaixaDoces;
+    private static List<Imposto> _impostosCaixaDoces;
     private static Servico _comboNet;
-    private static Imposto _impostoComboNet;
+    private static List<Imposto> _impostosComboNet;
     
     public static void mockAll(){
-        Map<String, Double> map;
+        List<Imposto> impostos;
         ArrayList<Mercadoria> submercadorias;
         
         //sorvete
-        map = new TreeMap<>();
-        map.put("imposto sobre sorvete", 0.2);
-        map.put("imposto sobre doces", 0.15);
-        _impostoSorvete = new Imposto(map);
+        impostos =  new ArrayList<>();
+        impostos.add(new Imposto("imposto sobre sorvete", new ValorBruto(2)));
+        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15)));
+        _impostosSorvete = impostos;
         submercadorias = new ArrayList<>();
-        _sorvete = new Produto(20.0, "sorvete", _impostoSorvete, submercadorias);
+        _sorvete = new Produto(20.0, "sorvete", submercadorias, _impostosSorvete);
         
         //chocolate
-        map = new TreeMap<>();
-        map.put("imposto sobre chocolate", 0.1);
-        map.put("imposto sobre doces", 0.15);
-        _impostoChocolate = new Imposto(map);
+        impostos =  new ArrayList<>();
+        impostos.add(new Imposto("imposto sobre chocolate", new ValorBruto(1)));
+        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15)));
+        _impostosChocolate = impostos;
         submercadorias = new ArrayList<>();
-        _chocolate = new Produto(5.0, "chocolate", _impostoChocolate, submercadorias);
+        _chocolate = new Produto(5.0, "chocolate", submercadorias, _impostosChocolate);
         
         //internet
-        map = new TreeMap<>();
-        map.put("imposto sobre internet", 0.1);
-        map.put("imposto sobre comunicações", 0.2);
-        _impostoInternet = new Imposto(map);
+        impostos =  new ArrayList<>();
+        impostos.add(new Imposto("imposto sobre internet", new ValorBruto(1)));
+        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2)));
+        _impostosInternet = impostos;
         submercadorias = new ArrayList<>();
-        _internet = new Servico(120.0, "internet", _impostoInternet, submercadorias);
+        _internet = new Servico(120.0, "internet", submercadorias, _impostosInternet);
         
         //telefone
-        map = new TreeMap<>();
-        map.put("imposto sobre telefone", 0.3);
-        map.put("imposto sobre comunicações", 0.2);
-        _impostoTelefone = new Imposto(map);
+        impostos =  new ArrayList<>();
+        impostos.add(new Imposto("imposto sobre telefone", new ValorBruto(3)));
+        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2)));
+        _impostosTelefone = impostos;
         submercadorias = new ArrayList<>();
-        _telefone = new Servico(30.0, "telefone", _impostoTelefone, submercadorias);
+        _telefone = new Servico(30.0, "telefone", submercadorias, _impostosTelefone);
         
         //combo net
-        map = new TreeMap<>();
-        _impostoComboNet = new Imposto(map);
+        impostos =  new ArrayList<>();
+        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2)));
+        _impostosComboNet = impostos;
         submercadorias = new ArrayList<>();
         submercadorias.add(_internet);
         submercadorias.add(_telefone);
-        _comboNet = new Servico(0.0, "combo net", _impostoComboNet, submercadorias);
+        _comboNet = new Servico(0.0, "combo net", submercadorias, _impostosComboNet);
         
         //caixa de doces
-        map = new TreeMap<>();
-        _impostoCaixaDoces = new Imposto(map);
+        impostos =  new ArrayList<>();
+        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15)));
+        _impostosCaixaDoces = impostos;
         submercadorias = new ArrayList<>();
         submercadorias.add(_chocolate);
         submercadorias.add(_sorvete);
-        _caixaDoces = new Produto(0.0, "caixa de doces", _impostoCaixaDoces, submercadorias);
+        _caixaDoces = new Produto(0.0, "caixa de doces", submercadorias, _impostosCaixaDoces);
         
     }
     
-    public static Imposto getImposto(String nome){
+    public static List<Imposto> getImposto(String nome){
         if (nome.equals("sorvete")){
-            return _impostoSorvete;
+            return _impostosSorvete;
         }
         if (nome.equals("chocolate")){
-            return _impostoChocolate;
+            return _impostosChocolate;
         }
         if (nome.equals("internet")){
-            return _impostoInternet;
+            return _impostosInternet;
         }
         if (nome.equals("telefone")){
-            return _impostoTelefone;
+            return _impostosTelefone;
         }
         if (nome.equals("combo net")){
-            return _impostoComboNet;
+            return _impostosComboNet;
         }
         if (nome.equals("caixa de doces")){
-            return _impostoCaixaDoces;
+            return _impostosCaixaDoces;
         }
         return null;
     }

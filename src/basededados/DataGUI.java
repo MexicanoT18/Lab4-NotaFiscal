@@ -1,12 +1,14 @@
 package basededados;
 
-
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import imposto.Imposto;
+import imposto.Porcentagem;
+import imposto.ValorBruto;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -37,6 +39,7 @@ public class DataGUI {
         
         //caixa de doces
         nomesImpostos = new ArrayList<>();
+        nomesImpostos.add("imposto sobre doces");
         nomes.put("caixa de doces", nomesImpostos);
         
         //internet
@@ -53,18 +56,39 @@ public class DataGUI {
         
         //combo net
         nomesImpostos = new ArrayList<>();
+        nomesImpostos.add("imposto sobre comunicações");
         nomes.put("combo net", nomesImpostos);
         return nomes;
     }
-    public static Map<String, Double> getImpostos(){
-        Map<String, Double> precos = new TreeMap<String, Double>();
-        precos.put("imposto sobre chocolate", 0.1);
-        precos.put("imposto sobre sorvete", 0.2);
-        precos.put("imposto sobre doces", 0.15);
-        precos.put("imposto sobre internet", 0.1);
-        precos.put("imposto sobre telefone", 0.3);
-        precos.put("imposto sobre comunicações", 0.2);
-        return precos;
+    public static Map<String, Imposto> getImpostos(){
+        Map<String, Imposto> impostos = new TreeMap<String, Imposto>();
+        Imposto imposto;
+        
+        //chocolate
+        imposto = new Imposto("imposto sobre chocolate", new ValorBruto(1));
+        impostos.put("imposto sobre chocolate", imposto);
+        
+        //sorvete
+        imposto = new Imposto("imposto sobre sorvete", new ValorBruto(2));
+        impostos.put("imposto sobre sorvete", imposto);
+        
+        //doces
+        imposto = new Imposto("imposto sobre doces", new Porcentagem(0.15));
+        impostos.put("imposto sobre doces", imposto);
+        
+        //internet
+        imposto = new Imposto("imposto sobre internet", new ValorBruto(1));
+        impostos.put("imposto sobre internet", imposto);
+        
+        //telefone
+        imposto = new Imposto("imposto sobre telefone", new ValorBruto(3));
+        impostos.put("imposto sobre telefone", imposto);
+        
+        //comunicações
+        imposto = new Imposto("imposto sobre comunicações", new Porcentagem(0.2));
+        impostos.put("imposto sobre comunicações", imposto);
+        
+        return impostos;
     }
     public static Map<String, Double> getPSPrecos(){
         Map<String, Double> precos = new TreeMap<>();

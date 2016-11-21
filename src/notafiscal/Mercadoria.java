@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package notafiscal;
 
+import imposto.Imposto;
 import java.util.List;
 
 /**
@@ -13,7 +9,9 @@ import java.util.List;
  */
 public interface Mercadoria {
     public double getPreco();
+    public double getValor();
     public String getNome();
-    public Imposto getImposto();
+    public List<Imposto> getImpostos();
     public List<Mercadoria> getSubmercadorias();
+    public boolean equals(Object object);
 }

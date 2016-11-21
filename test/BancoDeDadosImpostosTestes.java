@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import basededados.BancoDeDadosImpostos;
 import java.util.Map;
 import java.util.TreeMap;
-import notafiscal.Imposto;
+import imposto.Imposto;
+import java.util.List;
 import notafiscal.Produto;
 import notafiscal.Servico;
 import org.junit.Test;
@@ -36,73 +31,86 @@ public class BancoDeDadosImpostosTestes {
     
     @Test
     public void testarImpostoSorvete(){
-        Imposto esperado = DataMocker.getImposto("sorvete");
+        List<Imposto> esperado = DataMocker.getImposto("sorvete");
         try{
-            Imposto teste = _banco.getImposto("sorvete");
-            assertTrue(teste.equals(esperado));
+            List<Imposto> teste = _banco.getImposto("sorvete");
+            assertEquals(teste.size(), esperado.size());
+            for(int i=0; i<teste.size(); i++){
+                assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
+            }
         } catch(Exception e){
-            System.out.println(e.getMessage());
-            fail();
+            fail(e.getMessage());
         }
     }
     
     @Test
     public void testarImpostoChocolate(){
-        Imposto esperado = DataMocker.getImposto("chocolate");
+        List<Imposto> esperado = DataMocker.getImposto("chocolate");
         try{
-            Imposto teste = _banco.getImposto("chocolate");
-            assertTrue(teste.equals(esperado));
+            List<Imposto> teste = _banco.getImposto("chocolate");
+            assertEquals(teste.size(), esperado.size());
+            for(int i=0; i<teste.size(); i++){
+                assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
+            }
         } catch(Exception e){
-            System.out.println(e.getMessage());
-            fail();
+            fail(e.getMessage());
         }
     }
     
     @Test
     public void testarImpostoTelefone(){
-        Imposto esperado = DataMocker.getImposto("telefone");
+        List<Imposto> esperado = DataMocker.getImposto("telefone");
         try{
-            Imposto teste = _banco.getImposto("telefone");
-            assertTrue(teste.equals(esperado));
+            List<Imposto> teste = _banco.getImposto("telefone");
+            assertEquals(teste.size(), esperado.size());
+            for(int i=0; i<teste.size(); i++){
+                assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
+            }
         } catch(Exception e){
-            System.out.println(e.getMessage());
-            fail();
+            fail(e.getMessage());
         }
     }
     
     @Test
     public void testarImpostoInternet(){
-        Imposto esperado = DataMocker.getImposto("internet");
+        List<Imposto> esperado = DataMocker.getImposto("internet");
         try{
-            Imposto teste = _banco.getImposto("internet");
-            assertTrue(teste.equals(esperado));
+            List<Imposto> teste = _banco.getImposto("internet");
+            assertEquals(teste.size(), esperado.size());
+            for(int i=0; i<teste.size(); i++){
+                assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
+            }
         } catch(Exception e){
             System.out.println(e.getMessage());
-            fail();
+            fail(e.getMessage());
         }
     }
     
     @Test
     public void testarImpostoCaixaDeDoces(){
-        Imposto esperado = DataMocker.getImposto("caixa de doces");
+        List<Imposto> esperado = DataMocker.getImposto("caixa de doces");
         try{
-            Imposto teste = _banco.getImposto("caixa de doces");
-            assertTrue(teste.equals(esperado));
+            List<Imposto> teste = _banco.getImposto("caixa de doces");
+            assertEquals(teste.size(), esperado.size());
+            for(int i=0; i<teste.size(); i++){
+                assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
+            }
         } catch(Exception e){
-            System.out.println(e.getMessage());
-            fail();
+            fail(e.getMessage());
         }
     }
     
     @Test
     public void testarImpostoComboNet(){
-        Imposto esperado = DataMocker.getImposto("combo net");
+        List<Imposto> esperado = DataMocker.getImposto("combo net");
         try{
-            Imposto teste = _banco.getImposto("combo net");
-            assertTrue(teste.equals(esperado));
+            List<Imposto> teste = _banco.getImposto("combo net");
+            assertEquals(teste.size(), esperado.size());
+            for(int i=0; i<teste.size(); i++){
+                assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
+            }
         } catch(Exception e){
-            System.out.println(e.getMessage());
-            fail();
+            fail(e.getMessage());
         }
     }
 }

@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package basededados;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import notafiscal.Imposto;
+import imposto.Imposto;
+import java.util.List;
 import notafiscal.Mercadoria;
 import notafiscal.Produto;
 import notafiscal.Servico;
@@ -41,8 +37,6 @@ public class BancoDeDadosMercadorias {
         }
         double preco = _precos.get(nome);
         
-        Imposto imposto = _bancoImpostos.getImposto(nome);
-        
         ArrayList<String> nomesSubmercadorias = _submercadorias.get(nome);
         ArrayList<Mercadoria> submercadorias = new ArrayList<>();
         for(int i=0; i<nomesSubmercadorias.size(); i++){
@@ -52,7 +46,10 @@ public class BancoDeDadosMercadorias {
                 submercadorias.add(getServico(nomesSubmercadorias.get(i)));
         }
         
-        Produto produto = new Produto(preco, nome, imposto, submercadorias);
+        List<Imposto> impostos = _bancoImpostos.getImposto(nome);
+        
+        Produto produto = new Produto(preco, nome, submercadorias, impostos);
+        
         return produto;
     }
     
@@ -62,8 +59,6 @@ public class BancoDeDadosMercadorias {
         }
         double preco = _precos.get(nome);
         
-        Imposto imposto = _bancoImpostos.getImposto(nome);
-        
         ArrayList<String> nomesSubmercadorias = _submercadorias.get(nome);
         ArrayList<Mercadoria> submercadorias = new ArrayList<>();
         for(int i=0; i<nomesSubmercadorias.size(); i++){
@@ -72,7 +67,10 @@ public class BancoDeDadosMercadorias {
             if (_nomesServicos.contains(nomesSubmercadorias.get(i)))
                 submercadorias.add(getServico(nomesSubmercadorias.get(i)));
         }
-        Servico servico = new Servico(preco, nome, imposto, submercadorias);
+        
+        List<Imposto> impostos = _bancoImpostos.getImposto(nome);
+        
+        Servico servico = new Servico(preco, nome, submercadorias, impostos);
         return servico;
     }
 }
