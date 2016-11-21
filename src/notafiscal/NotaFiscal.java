@@ -52,7 +52,9 @@ public final class NotaFiscal {
     }
     
     public void adicionarMercadoria(String nome, double desconto, int quantidade) throws Exception{
-        if (!_emElaboracao) return;
+        if (!_emElaboracao){
+            throw new Exception("Nota já validada");
+        }
         
         ItemDeVenda item = new ItemDeVenda(nome, desconto, quantidade);
         

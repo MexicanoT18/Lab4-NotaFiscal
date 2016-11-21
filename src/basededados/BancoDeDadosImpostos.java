@@ -16,7 +16,7 @@ public class BancoDeDadosImpostos {
     private Map<String, ArrayList<String> > _impostosPorNome;
     private Map<String, Imposto> _impostos;
     
-    public BancoDeDadosImpostos(){
+    BancoDeDadosImpostos(){
         _impostosPorNome = DataGUI.getImpostosPorNomes();
         _impostos = DataGUI.getImpostos();
     }
