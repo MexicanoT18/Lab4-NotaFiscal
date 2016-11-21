@@ -1,5 +1,6 @@
-package basededados;
+package notafiscal;
 
+import basededados.BancoDeDados;
 import notafiscal.NotaFiscal;
 
 /**
