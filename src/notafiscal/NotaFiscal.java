@@ -7,6 +7,9 @@ package notafiscal;
 
 import basededados.ValidadorNF;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import javafx.print.Collation;
 
 /**
@@ -14,9 +17,10 @@ import javafx.print.Collation;
  * @author Lucas
  */
 public class NotaFiscal {
+    
     private int _id;
     private String _data;
-    private ArrayList<ItemDeVenda> _itens;
+    private List<ItemDeVenda> _itens;
     private boolean _emElaboracao;
     
     public NotaFiscal(){
@@ -25,16 +29,19 @@ public class NotaFiscal {
         _id = -1;
         _data = "Em elaboração";
     }
+    
     public NotaFiscal(int id, String data, ArrayList<ItemDeVenda> itens, boolean emElaboracao){
         _emElaboracao = emElaboracao;
         _itens = (ArrayList<ItemDeVenda>) itens.clone();
         _id = id;
         _data = data;
     }
+    
     public NotaFiscal validar(){
         ValidadorNF validador = ValidadorNF.getInstancia();
         return validador.validar(this);
     }
+    
     public double getValor(){
         double valor = 0.0;
         for (int i = 0; i < _itens.size(); i++) {
@@ -42,12 +49,19 @@ public class NotaFiscal {
         }
         return valor;
     }
+    
     public String getData(){
         return _data;
     }
+    
+    public boolean possuiItens(){
+        return !_itens.isEmpty();
+    }
+    
     public void adicionarProduto(String nome){
         if (!_emElaboracao) return;
     }
+    
     public void adicionarServico(String nome){
         if (!_emElaboracao) return;        
     }

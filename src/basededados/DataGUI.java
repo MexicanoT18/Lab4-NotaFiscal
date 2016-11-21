@@ -1,12 +1,12 @@
 package basededados;
 
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.mock;
+import java.util.TreeSet;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,50 +20,108 @@ import static org.mockito.Mockito.mock;
  */
 public class DataGUI {
     public static Map<String, ArrayList<String> > getImpostosPorNomes(){
-        Map<String, ArrayList<String> > nomes = mock(TreeMap.class);
+        Map<String, ArrayList<String> > nomes = new TreeMap<String, ArrayList<String>>();
         ArrayList<String> nomesImpostos;
         
         //chocolate
         nomesImpostos = new ArrayList<>();
         nomesImpostos.add("imposto sobre chocolate");
         nomesImpostos.add("imposto sobre doces");
-        when(nomes.get("chocolate")).thenReturn(nomesImpostos);
+        nomes.put("chocolate", nomesImpostos);
         
         //sorvete
         nomesImpostos = new ArrayList<>();
         nomesImpostos.add("imposto sobre sorvete");
         nomesImpostos.add("imposto sobre doces");
-        when(nomes.get("sorvete")).thenReturn(nomesImpostos);
+        nomes.put("sorvete", nomesImpostos);
+        
+        //caixa de doces
+        nomesImpostos = new ArrayList<>();
+        nomes.put("caixa de doces", nomesImpostos);
         
         //internet
         nomesImpostos = new ArrayList<>();
         nomesImpostos.add("imposto sobre internet");
         nomesImpostos.add("imposto sobre comunicações");
-        when(nomes.get("internet")).thenReturn(nomesImpostos);
+        nomes.put("internet", nomesImpostos);
         
         //telefone
         nomesImpostos = new ArrayList<>();
         nomesImpostos.add("imposto sobre telefone");
         nomesImpostos.add("imposto sobre comunicações");
-        when(nomes.get("telefone")).thenReturn(nomesImpostos);
+        nomes.put("telefone", nomesImpostos);
+        
+        //combo net
+        nomesImpostos = new ArrayList<>();
+        nomes.put("combo net", nomesImpostos);
         return nomes;
     }
     public static Map<String, Double> getImpostos(){
-        Map<String, Double> precos = mock(TreeMap.class);
-        when(precos.get("imposto sobre chocolate")).thenReturn(0.1);
-        when(precos.get("imposto sobre sorvete")).thenReturn(0.2);
-        when(precos.get("imposto sobre doces")).thenReturn(0.15);
-        when(precos.get("imposto sobre internet")).thenReturn(0.1);
-        when(precos.get("imposto sobre telefone")).thenReturn(0.3);
-        when(precos.get("imposto sobre comunicações")).thenReturn(0.2);
+        Map<String, Double> precos = new TreeMap<String, Double>();
+        precos.put("imposto sobre chocolate", 0.1);
+        precos.put("imposto sobre sorvete", 0.2);
+        precos.put("imposto sobre doces", 0.15);
+        precos.put("imposto sobre internet", 0.1);
+        precos.put("imposto sobre telefone", 0.3);
+        precos.put("imposto sobre comunicações", 0.2);
         return precos;
     }
-    public static TreeMap<String, Double> getPSPrecos(){
-        TreeMap<String, Double> precos = mock(TreeMap.class);
-        when(precos.get("chocolate")).thenReturn(5.0);
-        when(precos.get("sorvete")).thenReturn(20.0);
-        when(precos.get("internet")).thenReturn(120.0);
-        when(precos.get("telefone")).thenReturn(30.0);
+    public static Map<String, Double> getPSPrecos(){
+        Map<String, Double> precos = new TreeMap<>();
+        precos.put("chocolate", 5.0);
+        precos.put("sorvete", 20.0);
+        precos.put("internet", 120.0);
+        precos.put("telefone", 30.0);
+        precos.put("caixa de doces", 0.0);
+        precos.put("combo net", 0.0);
         return precos;
+    }
+    public static Map<String, ArrayList<String> > getPSSubmercadorias(){
+        Map<String, ArrayList<String> > sub = new TreeMap<>();
+        ArrayList<String> mercadorias;
+        
+        //chocolate
+        mercadorias = new ArrayList<>();
+        sub.put("chocolate", mercadorias);
+        
+        //sorvete
+        mercadorias = new ArrayList<>();
+        sub.put("sorvete", mercadorias);
+        
+        //internet
+        mercadorias = new ArrayList<>();
+        sub.put("internet", mercadorias);
+        
+        //telefone
+        mercadorias = new ArrayList<>();
+        sub.put("telefone", mercadorias);
+        
+        //combo net
+        mercadorias = new ArrayList<>();
+        mercadorias.add("internet");
+        mercadorias.add("telefone");
+        sub.put("combo net", mercadorias);
+        
+        //caixa de doces
+        mercadorias = new ArrayList<>();
+        mercadorias.add("chocolate");
+        mercadorias.add("sorvete");
+        sub.put("caixa de doces", mercadorias);
+        
+        return sub;
+    }
+    public static Set<String> getProdutos(){
+        Set<String> produtos = new TreeSet<String>();
+        produtos.add("sorvete");
+        produtos.add("chocolate");
+        produtos.add("caixa de doces");
+        return produtos;
+    }
+    public static Set<String> getServicos(){
+        Set<String> servicos = new TreeSet<String>();
+        servicos.add("internet");
+        servicos.add("telefone");
+        servicos.add("combo net");
+        return servicos;
     }
 }

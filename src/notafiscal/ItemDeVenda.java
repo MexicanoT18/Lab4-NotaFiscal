@@ -63,6 +63,10 @@ public class ItemDeVenda {
         return _quantidade*_desconto*_mercadoria.getPreco()*(1.0 + getImposto().getPorcentagem());
     }
     
+    public double getValorImposto(){
+        return _quantidade*_desconto*_mercadoria.getPreco()*getImposto().getPorcentagem();
+    }
+    
     public boolean equals(ItemDeVenda outro){
         return getNome().equals(outro.getNome()) && getDesconto() == outro.getDesconto() && getImposto().equals(outro.getImposto());
     }

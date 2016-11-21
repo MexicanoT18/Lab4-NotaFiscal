@@ -5,6 +5,8 @@
  */
 package notafiscal;
 
+import java.util.List;
+
 /**
  *
  * @author Lucas
@@ -13,4 +15,5 @@ public interface Mercadoria {
     public double getPreco();
     public String getNome();
     public Imposto getImposto();
+    public List<Mercadoria> getSubmercadorias();
 }
