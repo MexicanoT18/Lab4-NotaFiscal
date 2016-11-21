@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import imposto.Imposto;
 import java.util.List;
+import notafiscal.Mercadoria;
 
 /**
  *
@@ -20,21 +21,20 @@ public class BancoDeDadosImpostos {
         _impostos = DataGUI.getImpostos();
     }
     
-    public List<Imposto> getImposto(String nomeMercadoria) throws Exception{
+    public void getImposto(List<Imposto> impostos, Mercadoria mercadoria) throws Exception{
+        String nomeMercadoria = mercadoria.getNome();
+        
         if (!_impostosPorNome.containsKey(nomeMercadoria)){
             throw new Exception("Mercadoria inexistente no banco de dados de impostos");
         }
         
-        ArrayList<Imposto> impostos = new ArrayList<>();
         ArrayList<String> nomesImpostos = _impostosPorNome.get(nomeMercadoria);
         for(int i=0; i<nomesImpostos.size(); i++){
             String nomeImposto = nomesImpostos.get(i);
             if (!_impostos.containsKey(nomeImposto)){
                 throw new Exception("Imposto inexistente no banco de dados de impostos");
             }
-            impostos.add(_impostos.get(nomeImposto).clone());
+            impostos.add(_impostos.get(nomeImposto).clone(mercadoria));
         }
-        
-        return impostos;
     }
 }

@@ -46,9 +46,11 @@ public class BancoDeDadosMercadorias {
                 submercadorias.add(getServico(nomesSubmercadorias.get(i)));
         }
         
-        List<Imposto> impostos = _bancoImpostos.getImposto(nome);
+        List<Imposto> impostos = new ArrayList<>();
         
         Produto produto = new Produto(preco, nome, submercadorias, impostos);
+        
+        _bancoImpostos.getImposto(impostos, produto);
         
         return produto;
     }
@@ -68,9 +70,12 @@ public class BancoDeDadosMercadorias {
                 submercadorias.add(getServico(nomesSubmercadorias.get(i)));
         }
         
-        List<Imposto> impostos = _bancoImpostos.getImposto(nome);
+        List<Imposto> impostos = new ArrayList<>();
         
         Servico servico = new Servico(preco, nome, submercadorias, impostos);
+        
+        _bancoImpostos.getImposto(impostos, servico);
+        
         return servico;
     }
 }

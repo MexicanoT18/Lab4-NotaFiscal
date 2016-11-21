@@ -2,6 +2,7 @@ import basededados.BancoDeDadosImpostos;
 import java.util.Map;
 import java.util.TreeMap;
 import imposto.Imposto;
+import java.util.ArrayList;
 import java.util.List;
 import notafiscal.Produto;
 import notafiscal.Servico;
@@ -33,7 +34,8 @@ public class BancoDeDadosImpostosTestes {
     public void testarImpostoSorvete(){
         List<Imposto> esperado = DataMocker.getImposto("sorvete");
         try{
-            List<Imposto> teste = _banco.getImposto("sorvete");
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("sorvete"));
             assertEquals(teste.size(), esperado.size());
             for(int i=0; i<teste.size(); i++){
                 assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
@@ -47,7 +49,8 @@ public class BancoDeDadosImpostosTestes {
     public void testarImpostoChocolate(){
         List<Imposto> esperado = DataMocker.getImposto("chocolate");
         try{
-            List<Imposto> teste = _banco.getImposto("chocolate");
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("chocolate"));
             assertEquals(teste.size(), esperado.size());
             for(int i=0; i<teste.size(); i++){
                 assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
@@ -61,7 +64,8 @@ public class BancoDeDadosImpostosTestes {
     public void testarImpostoTelefone(){
         List<Imposto> esperado = DataMocker.getImposto("telefone");
         try{
-            List<Imposto> teste = _banco.getImposto("telefone");
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("telefone"));
             assertEquals(teste.size(), esperado.size());
             for(int i=0; i<teste.size(); i++){
                 assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
@@ -75,7 +79,8 @@ public class BancoDeDadosImpostosTestes {
     public void testarImpostoInternet(){
         List<Imposto> esperado = DataMocker.getImposto("internet");
         try{
-            List<Imposto> teste = _banco.getImposto("internet");
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("internet"));
             assertEquals(teste.size(), esperado.size());
             for(int i=0; i<teste.size(); i++){
                 assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
@@ -90,7 +95,8 @@ public class BancoDeDadosImpostosTestes {
     public void testarImpostoCaixaDeDoces(){
         List<Imposto> esperado = DataMocker.getImposto("caixa de doces");
         try{
-            List<Imposto> teste = _banco.getImposto("caixa de doces");
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("caixa de doces"));
             assertEquals(teste.size(), esperado.size());
             for(int i=0; i<teste.size(); i++){
                 assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
@@ -104,7 +110,8 @@ public class BancoDeDadosImpostosTestes {
     public void testarImpostoComboNet(){
         List<Imposto> esperado = DataMocker.getImposto("combo net");
         try{
-            List<Imposto> teste = _banco.getImposto("combo net");
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("combo net"));
             assertEquals(teste.size(), esperado.size());
             for(int i=0; i<teste.size(); i++){
                 assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));

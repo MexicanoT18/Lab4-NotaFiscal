@@ -65,27 +65,27 @@ public class DataGUI {
         Imposto imposto;
         
         //chocolate
-        imposto = new Imposto("imposto sobre chocolate", new ValorBruto(1));
+        imposto = new Imposto("imposto sobre chocolate", new ValorBruto(1), null);
         impostos.put("imposto sobre chocolate", imposto);
         
         //sorvete
-        imposto = new Imposto("imposto sobre sorvete", new ValorBruto(2));
+        imposto = new Imposto("imposto sobre sorvete", new ValorBruto(2), null);
         impostos.put("imposto sobre sorvete", imposto);
         
         //doces
-        imposto = new Imposto("imposto sobre doces", new Porcentagem(0.15));
+        imposto = new Imposto("imposto sobre doces", new Porcentagem(0.15), null);
         impostos.put("imposto sobre doces", imposto);
         
         //internet
-        imposto = new Imposto("imposto sobre internet", new ValorBruto(1));
+        imposto = new Imposto("imposto sobre internet", new ValorBruto(1), null);
         impostos.put("imposto sobre internet", imposto);
         
         //telefone
-        imposto = new Imposto("imposto sobre telefone", new ValorBruto(3));
+        imposto = new Imposto("imposto sobre telefone", new ValorBruto(3), null);
         impostos.put("imposto sobre telefone", imposto);
         
         //comunicações
-        imposto = new Imposto("imposto sobre comunicações", new Porcentagem(0.2));
+        imposto = new Imposto("imposto sobre comunicações", new Porcentagem(0.2), null);
         impostos.put("imposto sobre comunicações", imposto);
         
         return impostos;

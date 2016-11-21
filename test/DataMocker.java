@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
 import imposto.Imposto;
 import imposto.Porcentagem;
 import imposto.ValorBruto;
@@ -34,53 +32,53 @@ public class DataMocker {
         
         //sorvete
         impostos =  new ArrayList<>();
-        impostos.add(new Imposto("imposto sobre sorvete", new ValorBruto(2)));
-        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15)));
         _impostosSorvete = impostos;
         submercadorias = new ArrayList<>();
         _sorvete = new Produto(20.0, "sorvete", submercadorias, _impostosSorvete);
+        impostos.add(new Imposto("imposto sobre sorvete", new ValorBruto(2), _sorvete));
+        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15), _sorvete));
         
         //chocolate
         impostos =  new ArrayList<>();
-        impostos.add(new Imposto("imposto sobre chocolate", new ValorBruto(1)));
-        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15)));
         _impostosChocolate = impostos;
         submercadorias = new ArrayList<>();
         _chocolate = new Produto(5.0, "chocolate", submercadorias, _impostosChocolate);
+        impostos.add(new Imposto("imposto sobre chocolate", new ValorBruto(1), _chocolate));
+        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15), _chocolate));
         
         //internet
         impostos =  new ArrayList<>();
-        impostos.add(new Imposto("imposto sobre internet", new ValorBruto(1)));
-        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2)));
         _impostosInternet = impostos;
         submercadorias = new ArrayList<>();
         _internet = new Servico(120.0, "internet", submercadorias, _impostosInternet);
+        impostos.add(new Imposto("imposto sobre internet", new ValorBruto(1), _internet));
+        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2), _internet));
         
         //telefone
         impostos =  new ArrayList<>();
-        impostos.add(new Imposto("imposto sobre telefone", new ValorBruto(3)));
-        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2)));
         _impostosTelefone = impostos;
         submercadorias = new ArrayList<>();
         _telefone = new Servico(30.0, "telefone", submercadorias, _impostosTelefone);
+        impostos.add(new Imposto("imposto sobre telefone", new ValorBruto(3), _telefone));
+        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2), _telefone));
         
         //combo net
         impostos =  new ArrayList<>();
-        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2)));
         _impostosComboNet = impostos;
         submercadorias = new ArrayList<>();
         submercadorias.add(_internet);
         submercadorias.add(_telefone);
         _comboNet = new Servico(0.0, "combo net", submercadorias, _impostosComboNet);
+        impostos.add(new Imposto("imposto sobre comunicações", new Porcentagem(0.2), _comboNet));
         
         //caixa de doces
         impostos =  new ArrayList<>();
-        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15)));
         _impostosCaixaDoces = impostos;
         submercadorias = new ArrayList<>();
         submercadorias.add(_chocolate);
         submercadorias.add(_sorvete);
         _caixaDoces = new Produto(0.0, "caixa de doces", submercadorias, _impostosCaixaDoces);
+        impostos.add(new Imposto("imposto sobre doces", new Porcentagem(0.15), _caixaDoces));
         
     }
     
