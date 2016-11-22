@@ -112,4 +112,17 @@ public class BancoDeDadosMercadoriasTestes {
             fail(e.getMessage());
         }
     }
+    @Test
+    public void testarServiçoInexistente(){
+        Servico esperado = (Servico)DataMocker.getMercadoria("combo net");
+        try{
+            Servico teste = _bancoMercadorias.getServico("Serviço inexistente");
+            assertTrue(teste.getNome().equals(esperado.getNome()));
+            assertTrue(teste.getImpostos().equals(esperado.getImpostos()));
+            assertEquals(teste.getPreco(), esperado.getPreco(), 0.000000001);
+            assertTrue(teste.equals(esperado));
+            fail(e.getMessage());
+        } catch(Exception e){
+        }
+    }
 }
