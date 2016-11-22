@@ -120,4 +120,19 @@ public class BancoDeDadosImpostosTestes {
             fail(e.getMessage());
         }
     }
+    
+    @Test
+    public void testarImpostoInexistente(){
+        List<Imposto> esperado = DataMocker.getImposto("sorvete");
+        try{
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("imposto Inexistente"));
+            assertEquals(teste.size(), esperado.size());
+            for(int i=0; i<teste.size(); i++){
+                assertEquals(esperado.get(i).getNome() + "/" + teste.get(i).getNome(), esperado.get(i), teste.get(i));
+            }
+            fail(e.getMessage());
+        } catch(Exception e){
+        }
+    }
 }
