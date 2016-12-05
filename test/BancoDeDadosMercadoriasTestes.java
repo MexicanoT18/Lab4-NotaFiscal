@@ -102,13 +102,15 @@ public class BancoDeDadosMercadoriasTestes {
             Produto produto = _bancoMercadorias.getProduto("chocolate branco");
             fail();
         } catch(Exception e){
-            
+            if (!e.getMessage().equals("chocolate branco: Produto inexistente no banco de dados de mercadorias"))
+                fail(e.getMessage());
         }
         try{
             Servico servico = _bancoMercadorias.getServico("3g");
             fail();
         } catch(Exception e){
-            
+            if (!e.getMessage().equals("3g: Servico inexistente no banco de dados de mercadorias"))
+                fail(e.getMessage());            
         }
     }
 }

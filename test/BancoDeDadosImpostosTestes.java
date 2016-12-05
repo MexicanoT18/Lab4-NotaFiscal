@@ -102,22 +102,4 @@ public class BancoDeDadosImpostosTestes {
             fail(e.getMessage());
         }
     }
-    
-    @Test
-    public void testarGerarImpostoInvalido(){
-        try{
-            List<Imposto> teste = new ArrayList<>();
-            _banco.getImposto(teste, DataMocker.getMercadoria("chocolate branco"));
-            fail();
-        } catch(Exception e){
-            
-        }
-        try{
-            List<Imposto> teste = new ArrayList<>();
-            _banco.getImposto(teste, DataMocker.getMercadoria("3g"));
-            fail();
-        } catch(Exception e){
-            
-        }
-    }
 }
