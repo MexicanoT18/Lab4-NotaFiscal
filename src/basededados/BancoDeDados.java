@@ -7,7 +7,7 @@ import notafiscal.Servico;
  *
  * @author Lucas
  */
-public class BancoDeDados {         //DP singleton, facade
+public class BancoDeDados {         //requisito 14: DP singleton, facade
     private static BancoDeDados _instancia;
     private BancoDeDadosImpostos _bancoImpostos;
     private BancoDeDadosMercadorias _bancoMercadorias;

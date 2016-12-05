@@ -27,7 +27,7 @@ public class TaxCalculatorTestes {
     }
     
     @Test
-    public void testarImpostosSimples(){
+    public void testarImpostosSimples_requisito_8(){
         Porcentagem porcentagem = new Porcentagem(0.0);
         assertEquals(10.0, porcentagem.aplicarImposto(10.0, null), 1e-9);
         assertEquals(20.0, porcentagem.aplicarImposto(20.0, null), 1e-9);
@@ -59,7 +59,7 @@ public class TaxCalculatorTestes {
     }
     
     @Test
-    public void testarImpostosEmSequencia(){
+    public void testarImpostosEmSequencia_requisito_10(){
         List<Imposto> impostos = new ArrayList<>();
         Produto produto = new Produto(10.0, "dummy", new ArrayList<>(), impostos);      //preco inicial:           10
         impostos.add(new Imposto("imposto 1", new Porcentagem(0.5), produto));          //1o imposto (*1.5):       15

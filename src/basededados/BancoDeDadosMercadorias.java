@@ -31,14 +31,14 @@ public class BancoDeDadosMercadorias {
         _nomesServicos = DataGUI.getServicos();
     }
     
-    public Produto getProduto(String nome) throws Exception{
+    public Produto getProduto(String nome) throws Exception{    //requisito 5
         if (!_nomesProdutos.contains(nome)){
             throw new Exception(nome + ": Produto inexistente no banco de dados de mercadorias");
         }
         double preco = _precos.get(nome);
         
         ArrayList<String> nomesSubmercadorias = _submercadorias.get(nome);
-        ArrayList<Mercadoria> submercadorias = new ArrayList<>();
+        ArrayList<Mercadoria> submercadorias = new ArrayList<>();   //requisito 17
         for(int i=0; i<nomesSubmercadorias.size(); i++){
             if (_nomesProdutos.contains(nomesSubmercadorias.get(i)))
                 submercadorias.add(getProduto(nomesSubmercadorias.get(i)));
@@ -55,14 +55,14 @@ public class BancoDeDadosMercadorias {
         return produto;
     }
     
-    public Servico getServico(String nome) throws Exception{
+    public Servico getServico(String nome) throws Exception{    //requisito 5
         if (!_nomesServicos.contains(nome)){
             throw new Exception(nome + ": Servico inexistente no banco de dados de mercadorias");
         }
         double preco = _precos.get(nome);
         
         ArrayList<String> nomesSubmercadorias = _submercadorias.get(nome);
-        ArrayList<Mercadoria> submercadorias = new ArrayList<>();
+        ArrayList<Mercadoria> submercadorias = new ArrayList<>();   //requisito 17
         for(int i=0; i<nomesSubmercadorias.size(); i++){
             if (_nomesProdutos.contains(nomesSubmercadorias.get(i)))
                 submercadorias.add(getProduto(nomesSubmercadorias.get(i)));

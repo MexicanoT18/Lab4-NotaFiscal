@@ -23,7 +23,7 @@ public class ItemDeVendaTestes {
     }
     
     @Test
-    public void testarGerarItemDeVendaProdutosValidos(){
+    public void testarGerarItemDeVendaProdutosValidos_requisito_3(){
         try{
             ItemDeVenda item = new ItemDeVenda("chocolate", 0.0, 1);
             Produto produto = (Produto)DataMocker.getMercadoria("chocolate");
@@ -54,7 +54,7 @@ public class ItemDeVendaTestes {
     }
     
     @Test
-    public void testarGerarItemDeVendaServicosValidos(){
+    public void testarGerarItemDeVendaServicosValidos_requisito_3(){
         try{
             ItemDeVenda item = new ItemDeVenda("internet", 0.0, 1);
             Servico servico = (Servico)DataMocker.getMercadoria("internet");
@@ -85,7 +85,7 @@ public class ItemDeVendaTestes {
     }
     
     @Test
-    public void testarGerarItemDeVendaInvalido(){
+    public void testarGerarItemDeVendaInvalido_requisito_5(){
         try{
             ItemDeVenda item = new ItemDeVenda("chocolate branco", 0.0, 1);
             fail();

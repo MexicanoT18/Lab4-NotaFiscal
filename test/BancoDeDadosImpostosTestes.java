@@ -25,7 +25,7 @@ public class BancoDeDadosImpostosTestes {
     }
     
     @Test
-    public void testarGerarImpostoProduto(){
+    public void testarGerarImpostoProduto_requisito_8(){
         List<Imposto> esperado = DataMocker.getImposto("sorvete");
         try{
             List<Imposto> teste = new ArrayList<>();
@@ -51,7 +51,7 @@ public class BancoDeDadosImpostosTestes {
     }
     
     @Test
-    public void testarGerarImpostoServico(){
+    public void testarGerarImpostoServico_requisito_8(){
         List<Imposto> esperado = DataMocker.getImposto("telefone");
         try{
             List<Imposto> teste = new ArrayList<>();
@@ -78,7 +78,7 @@ public class BancoDeDadosImpostosTestes {
     }
     
     @Test
-    public void testarGerarImpostoMercadoriaComposta(){
+    public void testarGerarImpostoMercadoriaComposta_requisito_8_17(){
         List<Imposto> esperado = DataMocker.getImposto("caixa de doces");
         try{
             List<Imposto> teste = new ArrayList<>();

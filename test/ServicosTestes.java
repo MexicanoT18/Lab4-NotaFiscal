@@ -20,7 +20,7 @@ public class ServicosTestes {
     }
     
     @Test
-    public void testarGerarServicosValidos(){
+    public void testarGerarServicosValidos_requisito_5(){
         Servico esperado = (Servico)DataMocker.getMercadoria("internet");
         try{
             List<Imposto> impostos = DataMocker.getImposto("internet");
@@ -48,7 +48,7 @@ public class ServicosTestes {
     }
     
     @Test
-    public void testarGerarServicosCompostos(){
+    public void testarGerarServicosCompostos_requisito_17(){
         Servico esperado = (Servico)DataMocker.getMercadoria("combo net");
         try{
             List<Mercadoria> submercadorias = new ArrayList<>();

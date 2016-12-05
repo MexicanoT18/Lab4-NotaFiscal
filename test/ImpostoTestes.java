@@ -20,7 +20,7 @@ public class ImpostoTestes {
     }
     
     @Test
-    public void testarMetodosImpostos(){
+    public void testarMetodosImpostos_requisito_8(){
         List<Imposto> impostos = new ArrayList<>();
         Produto produto = new Produto(10.0, "dummy 1", new ArrayList<>(), impostos);
         Imposto imposto1 = new Imposto("imposto 1", new Porcentagem(0.1), produto);

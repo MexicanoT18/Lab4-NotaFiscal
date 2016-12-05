@@ -25,7 +25,7 @@ public class BancoDeDadosMercadoriasTestes {
     }
     
     @Test
-    public void testarGerarProdutosValidos(){
+    public void testarGerarProdutosValidos_requisito_5(){
         Produto esperado = (Produto)DataMocker.getMercadoria("sorvete");
         try{
             Produto teste = _bancoMercadorias.getProduto("sorvete");
@@ -49,7 +49,7 @@ public class BancoDeDadosMercadoriasTestes {
     }
     
     @Test
-    public void testarGerarServicosValidos(){
+    public void testarGerarServicosValidos_requisito_5(){
         Servico esperado = (Servico)DataMocker.getMercadoria("internet");
         try{
             Servico teste = _bancoMercadorias.getServico("internet");
@@ -73,7 +73,7 @@ public class BancoDeDadosMercadoriasTestes {
     }
     
     @Test
-    public void testarGerarMercadoriasCompostas(){
+    public void testarGerarMercadoriasCompostas_requisito_17(){
         Produto esperado1 = (Produto)DataMocker.getMercadoria("caixa de doces");
         try{
             Produto teste = _bancoMercadorias.getProduto("caixa de doces");
@@ -97,7 +97,7 @@ public class BancoDeDadosMercadoriasTestes {
     }
     
     @Test
-    public void testarGerarMercadoriaInvalida(){
+    public void testarGerarMercadoriaInvalida_requisito_5(){
         try{
             Produto produto = _bancoMercadorias.getProduto("chocolate branco");
             fail();

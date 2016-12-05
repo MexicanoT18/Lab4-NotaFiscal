@@ -22,7 +22,7 @@ public class ValidadorNFTeste {
     }
     
     @Test
-    public void testarValidacaoBemSucedida(){
+    public void testarValidacaoBemSucedida_requsito_6(){
         assertEquals(0, ValidadorNF.getInstancia().getNumeroNotasEmitidas());
         BancoDeDados banco = BancoDeDados.getInstancia();
         
@@ -90,7 +90,7 @@ public class ValidadorNFTeste {
     }
     
     @Test
-    public void testarValidacaoMalSucedidaNotaVazia(){
+    public void testarValidacaoMalSucedidaNotaVazia_requisito_1_6(){
         try{
             NotaFiscal nota = new NotaFiscal();
             nota.validar();
@@ -102,7 +102,7 @@ public class ValidadorNFTeste {
     }
     
     @Test
-    public void testarValidacaoMalSucedidaNotaJaValidada(){
+    public void testarValidacaoMalSucedidaNotaJaValidada_requisito_7(){
         try{
             NotaFiscal nota = new NotaFiscal();
             nota.adicionarMercadoria("combo net", 10.0, 2);

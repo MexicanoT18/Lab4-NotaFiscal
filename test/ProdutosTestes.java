@@ -21,7 +21,7 @@ public class ProdutosTestes {
     }
     
     @Test
-    public void testarGerarProdutosValidos(){
+    public void testarGerarProdutosValidos_requisito_5(){
         Produto esperado = (Produto)DataMocker.getMercadoria("sorvete");
         try{
             List<Imposto> impostos = DataMocker.getImposto("sorvete");
@@ -49,7 +49,7 @@ public class ProdutosTestes {
     }
     
     @Test
-    public void testarGerarProdutosCompostos(){
+    public void testarGerarProdutosCompostos_requisito_17(){
         Produto esperado = (Produto)DataMocker.getMercadoria("caixa de doces");
         try{
             List<Mercadoria> submercadorias = new ArrayList<>();

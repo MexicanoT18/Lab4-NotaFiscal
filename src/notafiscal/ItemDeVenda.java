@@ -9,10 +9,11 @@ import java.util.ArrayList;
  * @author Lucas
  */
 public final class ItemDeVenda {
-    private Mercadoria _mercadoria;
+    private Mercadoria _mercadoria; //requisitos 2, 3, 4
     private double _desconto;
     private int _quantidade;
     
+    //requisito 13: apenas o construtor define os atributos
     public ItemDeVenda(String nome, double desconto, int quantidade) throws Exception{
         BancoDeDados banco = BancoDeDados.getInstancia();
         _mercadoria = null;

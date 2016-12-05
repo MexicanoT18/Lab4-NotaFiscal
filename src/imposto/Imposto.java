@@ -14,6 +14,7 @@ public final class Imposto {
     private TaxCalculator _calculator;  //hook class
     private Mercadoria _mercadoria;     //Imposto deve ter acesso a mercadoria e a seus filhos
     
+    //requsito 16: apenas o construtor define os atributos
     public Imposto(String nome, TaxCalculator calculator, Mercadoria mercadoria){
         _calculator = calculator;
         _nome = nome;

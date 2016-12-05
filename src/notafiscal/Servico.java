@@ -15,6 +15,7 @@ public final class Servico implements Mercadoria{
     private final List<Imposto> _impostos;
     private final List<Mercadoria> _submercadorias;
     
+    //requsito 16: apenas o construtor define os atributos
     public Servico(double preco, String nome, List<Mercadoria> submercadorias, List<Imposto> impostos){
         _preco = preco;
         _nome = nome;

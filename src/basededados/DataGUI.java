@@ -21,7 +21,7 @@ import imposto.ValorBruto;
  * @author Lucas
  */
 public class DataGUI {
-    public static Map<String, ArrayList<String> > getImpostosPorNomes(){
+    public static Map<String, ArrayList<String> > getImpostosPorNomes(){    //requisito 9
         Map<String, ArrayList<String> > nomes = new TreeMap<String, ArrayList<String>>();
         ArrayList<String> nomesImpostos;
         

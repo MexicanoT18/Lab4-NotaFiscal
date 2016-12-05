@@ -21,7 +21,7 @@ public class NotaFiscalTestes {
     }
     
     @Test
-    public void testarGerarNotaFiscalValida(){
+    public void testarGerarNotaFiscalValida_requisito_1(){
         
         NotaFiscal nota = new NotaFiscal();
         double valor = 0.0;
@@ -81,7 +81,7 @@ public class NotaFiscalTestes {
     }
     
     @Test
-    public void testarGerarNotaFiscalInvalida(){
+    public void testarGerarNotaFiscalInvalida_requisito_5(){
         try{
             NotaFiscal nota = new NotaFiscal();
             nota.adicionarMercadoria("chocolate branco", 0.0, 1);

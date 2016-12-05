@@ -14,7 +14,7 @@ public final class NotaFiscal {
     
     private int _id;
     private List<ItemDeVenda> _itens;
-    private boolean _emElaboracao;
+    private boolean _emElaboracao;  //requisito 6
     
     public NotaFiscal(){
         _emElaboracao = true;
@@ -22,9 +22,10 @@ public final class NotaFiscal {
         _id = -1;
     }
     
+    //requsito 16: nota se torna imutável através da booleana _emElaboracao
     public void validar() throws Exception{
         if (!_emElaboracao){
-            throw new Exception("Nota já validada");
+            throw new Exception("Nota já validada");    //requisito 6
         }
         ValidadorNF validador = ValidadorNF.getInstancia();
         _id = validador.validarEPegarId(this);
@@ -54,7 +55,7 @@ public final class NotaFiscal {
     
     public void adicionarMercadoria(String nome, double desconto, int quantidade) throws Exception{
         if (!_emElaboracao){
-            throw new Exception("Nota já validada");
+            throw new Exception("Nota já validada");    //requisitos 6, 7
         }
         
         ItemDeVenda item = new ItemDeVenda(nome, desconto, quantidade);

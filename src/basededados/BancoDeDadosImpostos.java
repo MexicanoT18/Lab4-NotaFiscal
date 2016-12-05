@@ -21,7 +21,7 @@ public class BancoDeDadosImpostos {
         _impostos = DataGUI.getImpostos();
     }
     
-    public void getImposto(List<Imposto> impostos, Mercadoria mercadoria) throws Exception{
+    public void getImposto(List<Imposto> impostos, Mercadoria mercadoria) throws Exception{ //requisito 8
         String nomeMercadoria = mercadoria.getNome();
         
         if (!_impostosPorNome.containsKey(nomeMercadoria)){

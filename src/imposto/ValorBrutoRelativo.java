@@ -22,6 +22,7 @@ public class ValorBrutoRelativo implements TaxCalculator{
     
     @Override
     public double aplicarImposto(double valor, Imposto imposto){
+        //requisito 18: o calculador tem acesso à mercadoria e, portanto, a toda as suas subcategorias
         List<Imposto> impostos = imposto.getMercadoria().getImpostos();
         int mult = 0;
         for(int i=0; i<impostos.size(); i++){

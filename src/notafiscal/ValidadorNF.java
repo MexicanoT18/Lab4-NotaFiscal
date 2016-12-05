@@ -26,7 +26,7 @@ public class ValidadorNF {      //DP singleton
     }
     
     public boolean notaValida(NotaFiscal nota){
-        if (nota.getItensDeVenda().isEmpty()) return false;
+        if (nota.getItensDeVenda().isEmpty()) return false; //requisito 1
         return true;
     }
     
@@ -38,7 +38,7 @@ public class ValidadorNF {      //DP singleton
         BancoDeDados banco = BancoDeDados.getInstancia();
         
         while (banco.existeId(_idAtual)){
-            _idAtual++;
+            _idAtual++;     //requisito 7
         }
         int id = _idAtual;
         _idAtual++;
