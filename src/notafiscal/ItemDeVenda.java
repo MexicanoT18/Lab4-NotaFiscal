@@ -20,7 +20,7 @@ public final class ItemDeVenda {
             if (_mercadoria == null)
                 _mercadoria = banco.getProduto(nome);
         } catch (Exception e){
-            if (!e.getMessage().equals("Produto inexistente")){
+            if (!e.getMessage().equals(nome + ": Produto inexistente no banco de dados de mercadorias")){
                 throw e;
             }
         }
@@ -28,14 +28,21 @@ public final class ItemDeVenda {
             if (_mercadoria == null)
                 _mercadoria = banco.getServico(nome);
         } catch (Exception e){
-            if (!e.getMessage().equals("Serviço inexistente")){
+            if (!e.getMessage().equals(nome + ": Servico inexistente no banco de dados de mercadorias")){
                 throw e;
             }
         }
         if (_mercadoria == null)
-            throw new Exception("Produto/Serviço inexistente");
+            throw new IllegalArgumentException("Produto/Serviço inexistente");
         
+        if (desconto < 0.0 || desconto > 100.0){
+            throw new IllegalArgumentException("Desconto inválido");
+        }
         _desconto = desconto;
+        
+        if (quantidade < 1){
+            throw new IllegalArgumentException("Quantidade inválida");
+        }
         _quantidade = quantidade;                    
     }
     
@@ -56,7 +63,7 @@ public final class ItemDeVenda {
     }
     
     public double getValor(){
-        return _quantidade*_desconto*_mercadoria.getValor();
+        return _quantidade*(1.0 - (_desconto/100.0))*_mercadoria.getValor();
     }
     
     public boolean equals(Object object){

@@ -10,7 +10,7 @@ import java.util.TreeSet;
 public class BancoDeDadosNotaFiscal {
     private Set<Integer> _idsRegistrados;
     
-    BancoDeDadosNotaFiscal(){
+    public BancoDeDadosNotaFiscal(){
         _idsRegistrados = new TreeSet<>();
     }
     

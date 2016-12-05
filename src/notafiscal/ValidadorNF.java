@@ -11,9 +11,11 @@ public class ValidadorNF {      //DP singleton
     
     private static ValidadorNF _instancia;
     private int _idAtual;
+    private int _notasEmitidas;
             
     private ValidadorNF(){
-        _idAtual = 0;
+        _idAtual = 1;
+        _notasEmitidas = 0;
     }
     
     public static ValidadorNF getInstancia(){
@@ -35,19 +37,18 @@ public class ValidadorNF {      //DP singleton
         
         BancoDeDados banco = BancoDeDados.getInstancia();
         
+        while (banco.existeId(_idAtual)){
+            _idAtual++;
+        }
         int id = _idAtual;
         _idAtual++;
-        
-        if (banco.existeId(id)){
-            throw new Exception("Id já existe");
-        }
-        
-        
-        
-        return -1;
+        banco.registrarId(id);
+        _notasEmitidas++;
+                
+        return id;
     }
     
     public int getNumeroNotasEmitidas(){
-        return _idAtual;
+        return _notasEmitidas;
     }
 }

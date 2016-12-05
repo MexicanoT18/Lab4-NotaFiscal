@@ -13,7 +13,7 @@ public final class Porcentagem implements TaxCalculator{
     }
     
     @Override
-    public double aplicarImposto(double valor){
+    public double aplicarImposto(double valor, Imposto imposto){
         return valor*(1+_porcentagem);
     }
     

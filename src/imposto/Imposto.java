@@ -25,11 +25,15 @@ public final class Imposto {
     }
     
     public double getValor(double preco){
-        return _calculator.aplicarImposto(preco);
+        return _calculator.aplicarImposto(preco, this);
     }
     
     public TaxCalculator getCalculator(){
         return _calculator;
+    }
+    
+    public Mercadoria getMercadoria(){
+        return _mercadoria;
     }
     
     public boolean equals(Object object){

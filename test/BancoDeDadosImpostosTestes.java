@@ -17,12 +17,6 @@ import org.junit.Before;
 public class BancoDeDadosImpostosTestes {
     
     BancoDeDadosImpostos _banco;
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     
     @Before
     public void setUp(){
@@ -31,7 +25,7 @@ public class BancoDeDadosImpostosTestes {
     }
     
     @Test
-    public void testarImpostoSorvete(){
+    public void testarGerarImpostoProduto(){
         List<Imposto> esperado = DataMocker.getImposto("sorvete");
         try{
             List<Imposto> teste = new ArrayList<>();
@@ -43,11 +37,7 @@ public class BancoDeDadosImpostosTestes {
         } catch(Exception e){
             fail(e.getMessage());
         }
-    }
-    
-    @Test
-    public void testarImpostoChocolate(){
-        List<Imposto> esperado = DataMocker.getImposto("chocolate");
+        esperado = DataMocker.getImposto("chocolate");
         try{
             List<Imposto> teste = new ArrayList<>();
             _banco.getImposto(teste, DataMocker.getMercadoria("chocolate"));
@@ -61,7 +51,7 @@ public class BancoDeDadosImpostosTestes {
     }
     
     @Test
-    public void testarImpostoTelefone(){
+    public void testarGerarImpostoServico(){
         List<Imposto> esperado = DataMocker.getImposto("telefone");
         try{
             List<Imposto> teste = new ArrayList<>();
@@ -73,11 +63,7 @@ public class BancoDeDadosImpostosTestes {
         } catch(Exception e){
             fail(e.getMessage());
         }
-    }
-    
-    @Test
-    public void testarImpostoInternet(){
-        List<Imposto> esperado = DataMocker.getImposto("internet");
+        esperado = DataMocker.getImposto("internet");
         try{
             List<Imposto> teste = new ArrayList<>();
             _banco.getImposto(teste, DataMocker.getMercadoria("internet"));
@@ -92,7 +78,7 @@ public class BancoDeDadosImpostosTestes {
     }
     
     @Test
-    public void testarImpostoCaixaDeDoces(){
+    public void testarGerarImpostoMercadoriaComposta(){
         List<Imposto> esperado = DataMocker.getImposto("caixa de doces");
         try{
             List<Imposto> teste = new ArrayList<>();
@@ -104,11 +90,7 @@ public class BancoDeDadosImpostosTestes {
         } catch(Exception e){
             fail(e.getMessage());
         }
-    }
-    
-    @Test
-    public void testarImpostoComboNet(){
-        List<Imposto> esperado = DataMocker.getImposto("combo net");
+        esperado = DataMocker.getImposto("combo net");
         try{
             List<Imposto> teste = new ArrayList<>();
             _banco.getImposto(teste, DataMocker.getMercadoria("combo net"));
@@ -118,6 +100,24 @@ public class BancoDeDadosImpostosTestes {
             }
         } catch(Exception e){
             fail(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testarGerarImpostoInvalido(){
+        try{
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("chocolate branco"));
+            fail();
+        } catch(Exception e){
+            
+        }
+        try{
+            List<Imposto> teste = new ArrayList<>();
+            _banco.getImposto(teste, DataMocker.getMercadoria("3g"));
+            fail();
+        } catch(Exception e){
+            
         }
     }
 }

@@ -13,7 +13,7 @@ public final class ValorBruto implements TaxCalculator{
     }
     
     @Override
-    public double aplicarImposto(double valor){
+    public double aplicarImposto(double valor, Imposto imposto){
         return valor + _bruto;
     }
     

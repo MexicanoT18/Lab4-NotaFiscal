@@ -22,7 +22,7 @@ public class BancoDeDadosMercadorias {
     private Set<String> _nomesProdutos;
     private Set<String> _nomesServicos;
     
-    BancoDeDadosMercadorias(BancoDeDadosImpostos bancoImpostos){
+    public BancoDeDadosMercadorias(BancoDeDadosImpostos bancoImpostos){
         _bancoImpostos = bancoImpostos;
         
         _precos = DataGUI.getPSPrecos();

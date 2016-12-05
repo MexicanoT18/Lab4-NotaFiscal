@@ -28,9 +28,6 @@ public final class NotaFiscal {
         }
         ValidadorNF validador = ValidadorNF.getInstancia();
         _id = validador.validarEPegarId(this);
-        if (_id < 0){
-            throw new Exception("Validação não autorizada");
-        }
         _itens = Collections.unmodifiableList(_itens);
         _emElaboracao = false;
     }
@@ -41,6 +38,10 @@ public final class NotaFiscal {
             valor += _itens.get(i).getValor();            
         }
         return valor;
+    }
+    
+    public int getId(){
+        return _id;
     }
     
     public List<ItemDeVenda> getItensDeVenda(){
